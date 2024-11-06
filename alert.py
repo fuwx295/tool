@@ -47,7 +47,7 @@ def summary_keep_event(json_data):
 
 
 if __name__ == '__main__':
-  with open('alter_input.json', 'r') as file:
+  with open('alert_input.json', 'r') as file:
     data = json.load(file)
   
   json_data = data["deltaAnormalEvents"]
@@ -56,5 +56,5 @@ if __name__ == '__main__':
   summary_keep_event(json_data)
   text = json.dumps(stats, indent=4)
   print(text)
-  with open("alter_output.json", "w") as file:
+  with open("alert_output.json", "w") as file:
         file.write(text)

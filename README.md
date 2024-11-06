@@ -11,13 +11,13 @@ python topology.py
 
 拓扑图结果会打印到标准输出和topology_output.json中
 
-## alter.py
+## alert.py
 
 统计告警事件,按照异常类型统计
 生成告警统计结果，执行
 
 ```shell
-python alter.py
+python alert.py
 ```
 
-告警统计结果会打印到标准输出和alter_output.json中
+告警统计结果会打印到标准输出和alert_output.json中
