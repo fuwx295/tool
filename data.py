@@ -42,7 +42,7 @@ def get_alert_data(api_url, payload, headers=None, output_file=None):
         print(f"Failed to post data: {response.status_code}, {response.text}")
 
 # 拓扑图接口
-topology_api_url = "http://192.168.1.20:31406/api/service/relation"
+topology_api_url = "http://kindling.myddns.me:31244/api/service/relation"
 topology_data_file = "topology_input.json"
 params = {
     "startTime": 1730269110574000,
@@ -54,7 +54,7 @@ params = {
     "withTopoloyLevel": "true"
 }
 
-alert_api_url = "http://192.168.1.20:31406/api/alerts/descendant/anormal/delta"
+alert_api_url = "http://kindling.myddns.me:31244/api/alerts/descendant/anormal/delta"
 alert_data_file = "alert_input.json"
 payload = {
   "anormalTypes": "app,container,infra,network,error",
