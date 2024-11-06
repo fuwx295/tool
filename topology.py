@@ -41,5 +41,5 @@ if __name__ == "__main__":
     print(tree_representation)
 
     # 保存到文件
-    with open("topology_output.json", "w") as file:
+    with open("topology_output.txt", "w") as file:
         file.write(tree_representation)
