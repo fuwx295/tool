@@ -1,0 +1,156 @@
+{
+"current": {
+        "service": "ts-gateway-service",
+        "endpoint": "POST travel-plan",
+        "isTraced": true
+    },
+    "childRelations": [
+        {
+            "parentService": "ts-seat-service",
+            "parentEndpoint": "POST /api/v1/seatservice/seats/left_tickets",
+            "service": "ts-order-other-service",
+            "endpoint": "POST /api/v1/orderOtherService/orderOther/tickets",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-basic-service",
+            "parentEndpoint": "POST /api/v1/basicservice/basic/travels",
+            "service": "ts-train-service",
+            "endpoint": "POST /api/v1/trainservice/trains/byNames",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-route-plan-service",
+            "parentEndpoint": "POST /api/v1/routeplanservice/routePlan/cheapestRoute",
+            "service": "ts-travel2-service",
+            "endpoint": "GET /api/v1/travel2service/routes/{tripId}",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel-service",
+            "parentEndpoint": "GET /api/v1/travelservice/routes/{tripId}",
+            "service": "ts-route-service",
+            "endpoint": "GET /api/v1/routeservice/routes/{routeId}",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-route-plan-service",
+            "parentEndpoint": "POST /api/v1/routeplanservice/routePlan/cheapestRoute",
+            "service": "ts-travel-service",
+            "endpoint": "GET /api/v1/travelservice/routes/{tripId}",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-route-plan-service",
+            "parentEndpoint": "POST /api/v1/routeplanservice/routePlan/cheapestRoute",
+            "service": "ts-travel-service",
+            "endpoint": "POST /api/v1/travelservice/trips/left",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-route-plan-service",
+            "parentEndpoint": "POST /api/v1/routeplanservice/routePlan/cheapestRoute",
+            "service": "ts-travel2-service",
+            "endpoint": "POST /api/v1/travel2service/trips/left",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-basic-service",
+            "parentEndpoint": "POST /api/v1/basicservice/basic/travels",
+            "service": "ts-station-service",
+            "endpoint": "POST /api/v1/stationservice/stations/idlist",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel-service",
+            "parentEndpoint": "POST /api/v1/travelservice/trips/left",
+            "service": "ts-basic-service",
+            "endpoint": "POST /api/v1/basicservice/basic/travels",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel-plan-service",
+            "parentEndpoint": "POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "service": "ts-train-service",
+            "endpoint": "GET /api/v1/trainservice/trains/byName/{name}",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel2-service",
+            "parentEndpoint": "POST /api/v1/travel2service/trips/left",
+            "service": "ts-basic-service",
+            "endpoint": "POST /api/v1/basicservice/basic/travels",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel-plan-service",
+            "parentEndpoint": "POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "service": "ts-seat-service",
+            "endpoint": "POST /api/v1/seatservice/seats/left_tickets",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-seat-service",
+            "parentEndpoint": "POST /api/v1/seatservice/seats/left_tickets",
+            "service": "ts-order-service",
+            "endpoint": "POST /api/v1/orderservice/order/tickets",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-basic-service",
+            "parentEndpoint": "POST /api/v1/basicservice/basic/travels",
+            "service": "ts-price-service",
+            "endpoint": "POST /api/v1/priceservice/prices/byRouteIdsAndTrainTypes",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel2-service",
+            "parentEndpoint": "GET /api/v1/travel2service/routes/{tripId}",
+            "service": "ts-route-service",
+            "endpoint": "GET /api/v1/routeservice/routes/{routeId}",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-basic-service",
+            "parentEndpoint": "POST /api/v1/basicservice/basic/travels",
+            "service": "ts-route-service",
+            "endpoint": "POST /api/v1/routeservice/routes/byIds/",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel2-service",
+            "parentEndpoint": "POST /api/v1/travel2service/trips/left",
+            "service": "ts-seat-service",
+            "endpoint": "POST /api/v1/seatservice/seats/left_tickets",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel-plan-service",
+            "parentEndpoint": "POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "service": "ts-route-plan-service",
+            "endpoint": "POST /api/v1/routeplanservice/routePlan/cheapestRoute",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-seat-service",
+            "parentEndpoint": "POST /api/v1/seatservice/seats/left_tickets",
+            "service": "ts-config-service",
+            "endpoint": "GET /api/v1/configservice/configs/{configName}",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-travel-service",
+            "parentEndpoint": "POST /api/v1/travelservice/trips/left",
+            "service": "ts-seat-service",
+            "endpoint": "POST /api/v1/seatservice/seats/left_tickets",
+            "isTraced": true
+        },
+        {
+            "parentService": "ts-gateway-service",
+            "parentEndpoint": "POST travel-plan",
+            "service": "ts-travel-plan-service",
+            "endpoint": "POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "isTraced": true
+        }
+    ]
+}

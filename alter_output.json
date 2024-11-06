@@ -1,0 +1,86 @@
+{
+    "ts-gateway-service": {
+        "5": {
+            "add": 308,
+            "duplicate": 0,
+            "resolve": 308,
+            "keep": 0,
+            "lastTime": 1730808206044000,
+            "fristTime": 1730807971025000
+        },
+        "1": {
+            "add": 4,
+            "duplicate": 0,
+            "resolve": 0,
+            "keep": 2,
+            "lastTime": 1730808166065000,
+            "fristTime": 1730808096035000
+        }
+    },
+    "ts-travel-service": {
+        "5": {
+            "add": 298,
+            "duplicate": 0,
+            "resolve": 298,
+            "keep": 0,
+            "lastTime": 1730808206044000,
+            "fristTime": 1730807971025000
+        },
+        "1": {
+            "add": 4,
+            "duplicate": 0,
+            "resolve": 0,
+            "keep": 2,
+            "lastTime": 1730808166065000,
+            "fristTime": 1730808096035000
+        }
+    },
+    "ts-basic-service": {
+        "5": {
+            "add": 296,
+            "duplicate": 0,
+            "resolve": 296,
+            "keep": 0,
+            "lastTime": 1730808206044000,
+            "fristTime": 1730807971025000
+        },
+        "1": {
+            "add": 3,
+            "duplicate": 0,
+            "resolve": 0,
+            "keep": 2,
+            "lastTime": 1730808166065000,
+            "fristTime": 1730808096035000
+        }
+    },
+    "ts-seat-service": {
+        "3": {
+            "add": 0,
+            "duplicate": 9,
+            "resolve": 3,
+            "keep": 2,
+            "lastTime": 1730808163444000,
+            "fristTime": 1730807323369000
+        }
+    },
+    "ts-price-service": {
+        "1": {
+            "add": 3,
+            "duplicate": 0,
+            "resolve": 1,
+            "keep": 0,
+            "lastTime": 1730808096118000,
+            "fristTime": 1730807926065000
+        }
+    },
+    "ts-station-service": {
+        "1": {
+            "add": 1,
+            "duplicate": 0,
+            "resolve": 1,
+            "keep": 0,
+            "lastTime": 1730807796097000,
+            "fristTime": 1730807736078000
+        }
+    }
+}
