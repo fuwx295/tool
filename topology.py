@@ -9,8 +9,10 @@ with open('topology_input.json', 'r') as file:
 relation_dict = {}
 for relation in data["childRelations"]:
 
-    parent_node = f"{relation['parentService']}\n└── {relation['parentEndpoint']}"
-    child_node = f"{relation['service']}\n└── {relation['endpoint']}"
+    p = relation['parentService'].split("service")[0]
+    c = relation['service'].split("service")[0]
+    parent_node = f"{p}{relation['parentEndpoint']}"
+    child_node = f"{c}{relation['endpoint']}"
     
     if parent_node not in relation_dict:
         relation_dict[parent_node] = []
@@ -19,10 +21,12 @@ for relation in data["childRelations"]:
 
 # 递归打印树状结构
 def print_tree(node, depth=0):
-    indent = "    " * depth
-    service = node.split("\n")[0]
-    endpoint = node.split("\n")[1]
-    print(f"{indent}{service}\n{indent}{endpoint}")
+    indent = "  " * depth
+    print(f"{indent}", end="")
+    if depth > 0:
+        print("└──", end="")
+
+    print(f"{node}")
     if node in relation_dict:
         for child in relation_dict[node]:
             print_tree(child, depth + 1)

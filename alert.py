@@ -5,7 +5,7 @@ stats = {}
 # 遍历事件数组
 def summary_event(json_data):
   for event in json_data:
-    service_name = event["serviceName"]
+    service_name = event["serviceName"].split("service")[0]
     endpoint = event["endpoint"]
     anormal_status = event["anormalStatus"]
     anormal_type = event["anormalType"]
@@ -26,11 +26,11 @@ def summary_event(json_data):
             "resolve": 0,
             "keep": 0,
             "lastTime": time,
-            "fristTime": time
+            "firstTime": time
         }
 
-    if time < stats[service_name][endpoint][anormal_type]["fristTime"]:
-        stats[service_name][endpoint][anormal_type]["fristTime"] = time
+    if time < stats[service_name][endpoint][anormal_type]["firstTime"]:
+        stats[service_name][endpoint][anormal_type]["firstTime"] = time
     
     if time > stats[service_name][endpoint][anormal_type]["lastTime"]:
         stats[service_name][endpoint][anormal_type]["lastTime"] = time
@@ -46,7 +46,7 @@ def summary_event(json_data):
 
 def summary_keep_event(json_data):
     for event in json_data:
-        service_name = event["serviceName"]
+        service_name = event["serviceName"].split("service")[0]
         anormal_type = event["anormalType"]
         endpoint = event["endpoint"]
         stats[service_name][endpoint][anormal_type]["keep"] += 1
