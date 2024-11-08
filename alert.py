@@ -5,7 +5,8 @@ stats = {}
 # 遍历事件数组
 def summary_event(json_data):
   for event in json_data:
-    service_name = event["serviceName"]
+    service_name = event["serviceName"].split("service")[0]
+    endpoint = event["endpoint"]
     anormal_status = event["anormalStatus"]
     anormal_type = event["anormalType"]
     time = event["timestamp"]
@@ -13,37 +14,42 @@ def summary_event(json_data):
     # 初始化服务名字典
     if service_name not in stats:
         stats[service_name] = {}
+
+    if endpoint not in stats[service_name]:
+        stats[service_name][endpoint] = {}
     
-    if anormal_type not in stats[service_name]:
-        stats[service_name][anormal_type] = {
+    
+    if anormal_type not in stats[service_name][endpoint]:
+        stats[service_name][endpoint][anormal_type] = {
             "add": 0,
             "duplicate": 0,
             "resolve": 0,
             "keep": 0,
             "lastTime": time,
-            "fristTime": time
+            "firstTime": time
         }
 
-    if time < stats[service_name][anormal_type]["fristTime"]:
-        stats[service_name][anormal_type]["fristTime"] = time
+    if time < stats[service_name][endpoint][anormal_type]["firstTime"]:
+        stats[service_name][endpoint][anormal_type]["firstTime"] = time
     
-    if time > stats[service_name][anormal_type]["lastTime"]:
-        stats[service_name][anormal_type]["lastTime"] = time
+    if time > stats[service_name][endpoint][anormal_type]["lastTime"]:
+        stats[service_name][endpoint][anormal_type]["lastTime"] = time
 
     match anormal_status:
         case "startFiring":
-            stats[service_name][anormal_type]["add"] += 1
+            stats[service_name][endpoint][anormal_type]["add"] += 1
         case "resolved":
-            stats[service_name][anormal_type]["resolve"] += 1
+            stats[service_name][endpoint][anormal_type]["resolve"] += 1
         case "updatedFiring":
-            stats[service_name][anormal_type]["duplicate"] += 1
+            stats[service_name][endpoint][anormal_type]["duplicate"] += 1
 
 
 def summary_keep_event(json_data):
     for event in json_data:
-        service_name = event["serviceName"]
+        service_name = event["serviceName"].split("service")[0]
         anormal_type = event["anormalType"]
-        stats[service_name][anormal_type]["keep"] += 1
+        endpoint = event["endpoint"]
+        stats[service_name][endpoint][anormal_type]["keep"] += 1
 
 
 if __name__ == '__main__':
